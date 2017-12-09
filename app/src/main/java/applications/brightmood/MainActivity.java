@@ -1,6 +1,7 @@
 package applications.brightmood;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -8,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 import applications.brightmood.R;
 
@@ -17,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     EditText etPreset, etWord, etArea, etDomain;
     Button btnAdd,btnView,btnGo;
     DatabaseHelper myDB;
+    ArrayList<Speech> speechList;
 
 
     @Override
@@ -31,14 +35,35 @@ public class MainActivity extends AppCompatActivity {
         btnView = (Button) findViewById(R.id.btnView);
         btnGo = (Button) findViewById(R.id.btnGo);
 
+
+        myDB = new DatabaseHelper(this);
+        speechList = new ArrayList<>();
+        Speech speech;
+        Cursor data = myDB.getListContents();
+        int numRows = data.getCount();
+        if (numRows == 0) {
+            Toast.makeText(MainActivity.this, "The Database is empty  :(.", Toast.LENGTH_LONG).show();
+        } else {
+            int i = 0;
+            while (data.moveToNext()) {
+                speech = new Speech(data.getString(1), data.getString(2), data.getString(3));
+                speechList.add(i, speech);
+                System.out.println(data.getString(1) + " " + data.getString(2) + " " + data.getString(3));
+                System.out.println(speechList.get(i).getWord());
+                i++;
+            }
+        }
+
         myDB = new DatabaseHelper(this);
         btnGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,FitbitActivity.class);
+                intent.putExtra("key", speechList);
                 startActivity(intent);
             }
         });
+
 
         btnView.setOnClickListener(new View.OnClickListener() {
             @Override
