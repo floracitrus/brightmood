@@ -70,10 +70,10 @@ public class FourColumn_ListAdapter extends BaseAdapter {
         }
 
         Speech item = speeches.get(position);
-        holder.mWord.setText(item.getWord().toString());
-        holder.mDomain.setText(item.getDomain().toString());
-        holder.mArea.setText(item.getArea().toString());
-        holder.mPreset.setText(item.getPreset().toString());
+        holder.mWord.setText(item.getWord());
+        holder.mDomain.setText(item.getDomain());
+        holder.mArea.setText(item.getArea());
+        holder.mPreset.setText(item.getPreset());
 
         return convertView;
     }

@@ -52,8 +52,6 @@ public class ViewListContents extends AppCompatActivity {
 
         }
 
-        Intent i = new Intent(getApplicationContext(), FitbitActivity.class);
-        i.putExtra("key",speechList);
 
     }
 

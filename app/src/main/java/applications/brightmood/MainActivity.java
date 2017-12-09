@@ -46,9 +46,9 @@ public class MainActivity extends AppCompatActivity {
         } else {
             int i = 0;
             while (data.moveToNext()) {
-                speech = new Speech(data.getString(1), data.getString(2), data.getString(3));
+                speech = new Speech(data.getString(1), data.getString(2), data.getString(3),data.getString(4));
                 speechList.add(i, speech);
-                System.out.println(data.getString(1) + " " + data.getString(2) + " " + data.getString(3));
+                System.out.println(data.getString(1) + " " + data.getString(2) + " " + data.getString(3)+" "+data.getString(4));
                 System.out.println(speechList.get(i).getWord());
                 i++;
             }
@@ -82,8 +82,9 @@ public class MainActivity extends AppCompatActivity {
                 String preset = etPreset.getText().toString();
 
                 if(word.length() != 0 && area.length() != 0){// && preset.length() != 0){
-                    AddData(word, area, preset);
+                    AddData(word,domain, area, preset);
                     etWord.setText("");
+                    etDomain.setText("");
                     etArea.setText("");
                     etPreset.setText("");
                 }else{
@@ -94,8 +95,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void AddData(String word,String area, String preset ){
-        boolean insertData = myDB.addData(word,area,preset);
+    public void AddData(String word,String domain, String area, String preset ){
+        boolean insertData = myDB.addData(word,domain, area,preset);
 
         if(insertData==true){
             Toast.makeText(MainActivity.this,"Successfully Entered Data!",Toast.LENGTH_LONG).show();
