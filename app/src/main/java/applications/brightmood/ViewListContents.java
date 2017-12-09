@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -23,6 +25,10 @@ public class ViewListContents extends AppCompatActivity {
     DatabaseHelper myDB;
     ArrayList<Speech> speechList;
     Speech speech;
+    // There always should be only one empty row, other empty rows will
+    // be removed.
+    private View mExclusiveEmptyView;
+    private LinearLayout mContainerView;
 
 
     @Override
@@ -30,7 +36,7 @@ public class ViewListContents extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
-
+        //mContainerView = (LinearLayout) findViewById(R.id.parentView);
         myDB = new DatabaseHelper(this);
         speechList = new ArrayList<>();
         Cursor data = myDB.getListContents();
@@ -54,6 +60,14 @@ public class ViewListContents extends AppCompatActivity {
 
 
     }
+
+
+    // onClick handler for the "X" button of each row
+    public void onDeleteClicked(View v) {
+        // remove the row by calling the getParent on button
+        mContainerView.removeView((View) v.getParent());
+    }
+
 
 
 }

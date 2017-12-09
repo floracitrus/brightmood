@@ -35,25 +35,6 @@ public class MainActivity extends AppCompatActivity {
         btnView = (Button) findViewById(R.id.btnView);
         btnGo = (Button) findViewById(R.id.btnGo);
 
-
-        myDB = new DatabaseHelper(this);
-        speechList = new ArrayList<>();
-        Speech speech;
-        Cursor data = myDB.getListContents();
-        int numRows = data.getCount();
-        if (numRows == 0) {
-            Toast.makeText(MainActivity.this, "The Database is empty  :(.", Toast.LENGTH_LONG).show();
-        } else {
-            int i = 0;
-            while (data.moveToNext()) {
-                speech = new Speech(data.getString(1), data.getString(2), data.getString(3),data.getString(4));
-                speechList.add(i, speech);
-                System.out.println(data.getString(1) + " " + data.getString(2) + " " + data.getString(3)+" "+data.getString(4));
-                System.out.println(speechList.get(i).getWord());
-                i++;
-            }
-        }
-
         myDB = new DatabaseHelper(this);
         btnGo.setOnClickListener(new View.OnClickListener() {
             @Override
