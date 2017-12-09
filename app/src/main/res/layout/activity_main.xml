@@ -72,5 +72,5 @@
         android:layout_below="@+id/btnAdd"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="33dp"
-        android:text="go" />
+        android:text="@string/go" />
 </RelativeLayout>

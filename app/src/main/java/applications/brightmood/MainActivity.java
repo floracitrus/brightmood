@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
     public void AddData(String word,String domain, String area, String preset ){
         boolean insertData = myDB.addData(word,domain, area,preset);
 
-        if(insertData==true){
+        if(insertData){
             Toast.makeText(MainActivity.this,"Successfully Entered Data!",Toast.LENGTH_LONG).show();
         }else{
             Toast.makeText(MainActivity.this,"Something went wrong :(.",Toast.LENGTH_LONG).show();

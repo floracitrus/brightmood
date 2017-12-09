@@ -123,14 +123,15 @@ public class FitbitActivity extends AppCompatActivity {
         //pass in the value that speechList has
 
         String p1 = "http://192.168.1.32/SetDyNet.cgi?a=";
-        if(speechList !=null){
+
             for(Speech w: speechList) {
-                if (words.contains(w.getWord()) && words.contains("on")) {
+                if (words.contains("hello") && words.contains("hello")) {
 
                 String p2 = w.getArea();
                 String p3 = "&p=1";
                 handler.execute(p1 + p2 + p3);
-                String temp = w.getWord().concat("speechList on detected");
+                String temp = "hello detected";
+                //String temp = w.getWord().concat("speechList on detected");
                 mTextMessage.setText(temp);
                 } else if (words.contains(w.getWord()) && words.contains("off")) {
 
@@ -144,9 +145,6 @@ public class FitbitActivity extends AppCompatActivity {
                     mTextMessage.setText("jump out the speech list");
                 }
             }
-        }
-        if(speechList==null)
-            mTextMessage.setText("speechList NULL");
 
     //test using p1
     if (words.contains("dim")) {
