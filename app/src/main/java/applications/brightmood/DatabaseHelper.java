@@ -16,6 +16,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL1 = "ID";
     public static final String COL2 = "WORD";
     public static final String COL3 = "AREA";
+    public static final String DOM = "DOMAIN";
     public static final String COL4 = "PRESET";
 
 
@@ -66,5 +67,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return data;
     }
 
+
+    public boolean deleteTitle(String name)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NAME,  DOM+ "=" + name, null) > 0;
+    }
 
 }

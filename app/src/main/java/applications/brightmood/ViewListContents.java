@@ -1,5 +1,6 @@
 package applications.brightmood;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -21,14 +22,14 @@ public class ViewListContents extends AppCompatActivity {
 
     DatabaseHelper myDB;
     ArrayList<Speech> speechList;
-    ListView listView;
     Speech speech;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.viewcontents_layout);
+        setContentView(R.layout.activity_view);
 
         myDB = new DatabaseHelper(this);
         speechList = new ArrayList<>();
@@ -39,14 +40,14 @@ public class ViewListContents extends AppCompatActivity {
         } else {
             int i = 0;
             while (data.moveToNext()) {
-                speech = new Speech(data.getString(1), data.getString(2), data.getString(3));
+                speech = new Speech(data.getString(1), data.getString(2), data.getString(3), data.getString(4));
                 speechList.add(i, speech);
-                System.out.println(data.getString(1) + " " + data.getString(2) + " " + data.getString(3));
+                System.out.println(data.getString(1) + " " + data.getString(2) + " " + data.getString(3)+" "+data.getString(4));
                 System.out.println(speechList.get(i).getWord());
                 i++;
             }
-            ThreeColumn_ListAdapter adapter = new ThreeColumn_ListAdapter(this, R.layout.list_adapter_view, speechList);
-            listView = (ListView) findViewById(R.id.listView);
+            ListView listView = (ListView) findViewById(R.id.listview);
+            FourColumn_ListAdapter adapter = new FourColumn_ListAdapter(this, speechList);
             listView.setAdapter(adapter);
 
         }

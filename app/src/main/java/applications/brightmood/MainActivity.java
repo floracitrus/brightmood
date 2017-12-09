@@ -14,7 +14,7 @@ import applications.brightmood.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText etPreset, etWord, etArea;
+    EditText etPreset, etWord, etArea, etDomain;
     Button btnAdd,btnView,btnGo;
     DatabaseHelper myDB;
 
@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         etPreset = (EditText) findViewById(R.id.etPreset);
         etWord = (EditText) findViewById(R.id.etWord);
+        etDomain = (EditText) findViewById(R.id.etDomain);
         etArea = (EditText) findViewById(R.id.etArea);
         btnAdd = (Button) findViewById(R.id.btnAdd);
         btnView = (Button) findViewById(R.id.btnView);
@@ -51,8 +52,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String word = etWord.getText().toString();
+                String domain = etDomain.getText().toString();
                 String area = etArea.getText().toString();
                 String preset = etPreset.getText().toString();
+
                 if(word.length() != 0 && area.length() != 0){// && preset.length() != 0){
                     AddData(word, area, preset);
                     etWord.setText("");

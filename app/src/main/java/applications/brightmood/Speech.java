@@ -6,11 +6,14 @@ import java.io.Serializable;
 
 public class Speech implements Serializable{
     private String word;
+    private String domain;
     private String area;
     private String preset;
 
-    public Speech(String word, String area, String preset) {
+
+    public Speech(String word, String domain, String area, String preset) {
         this.word = word;
+        this.domain = domain;
         this.area = area;
         this.preset = preset;
     }
@@ -23,6 +26,12 @@ public class Speech implements Serializable{
 
     public String getArea(){
         return area;
+    }
+    public String getDomain(){
+        return domain;
+    }
+    public void setDomain(String area){
+        this.domain = area;
     }
     public void setArea(String area){
         this.area = area;

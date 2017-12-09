@@ -24,8 +24,18 @@
     <EditText
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:id="@+id/etArea"
+        android:id="@+id/etDomain"
         android:layout_below="@+id/etWord"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/domain_name" />
+
+
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/etArea"
+        android:layout_below="@+id/etDomain"
         android:layout_centerHorizontal="true"
         android:hint="@string/area_number"/>
 
