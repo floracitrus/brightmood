@@ -45,7 +45,7 @@
         android:id="@+id/etPreset"
         android:layout_below="@+id/etArea"
         android:layout_centerHorizontal="true"
-        android:hint="@string/preset_number_could_be_empty"/>
+        android:hint="@string/preset_number"/>
 
     <Button
         android:layout_marginTop="15dp"

@@ -196,19 +196,19 @@ public class FitbitActivity extends AppCompatActivity {
 
             //leave for test p1 work or not
         } else if (words.contains("red") || words.contains("angry")) {
-            handler.execute("http://192.168.1.32/SetDyNet.cgi?a=2&p=3");
+            handler.execute(p1+"2&p=3");
             mTextMessage.setText("red detected");
         } else if (words.contains("green") || words.contains("park")) {
-            handler.execute("http://192.168.1.32/SetDyNet.cgi?a=2&p=2");
+            handler.execute(p1+"2&p=2");
             mTextMessage.setText("green detected");
         } else if (words.contains("applause")) {
-            handler.execute("http://192.168.1.32/SetDyNet.cgi?a=10&p=3");
+            handler.execute(p1+"10&p=3");
             mTextMessage.setText("applause detected");
         } else if (words.contains("party")) {
-            handler.execute("http://192.168.1.32/SetDyNet.cgi?a=10&p=4");
+            handler.execute(p1+"10&p=4");
             mTextMessage.setText("party detected");
         } else if (words.contains("relax")) {
-            handler.execute("http://192.168.1.32/SetDyNet.cgi?a=10&p=5");
+            handler.execute(p1+"10&p=5");
             mTextMessage.setText("relax detected");
         } else {
             Speech temp=null;
@@ -233,10 +233,10 @@ public class FitbitActivity extends AppCompatActivity {
                     String ht = "http://";
                     String dy = "/SetDyNet.cgi?a=";
                     tempMessage = ht+d+dy+a+"&p="+p;
-                    Log.e("shuijiao",tempMessage);
+                    Log.e("debug",tempMessage);
                 }
                 handler.execute(tempMessage);
-                mTextMessage.setText("string a detected");
+                mTextMessage.setText("string from speechList detected");
             } else if (words.contains("on")) {
                 handler.execute("http://192.168.1.32/SetDyNet.cgi?a=2&p=1");
                 mTextMessage.setText("on detected");
