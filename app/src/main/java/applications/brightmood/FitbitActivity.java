@@ -39,6 +39,8 @@ public class FitbitActivity extends AppCompatActivity {
     private  ArrayList<Speech> speechList;
     DatabaseHelper myDB;
 
+    private static final String LOCAL_DOMAIN = "http://192.168.1.32/SetDyNet.cgi?a=";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -141,8 +143,7 @@ public class FitbitActivity extends AppCompatActivity {
         // ArrayList<Speech> speechList = new ArrayList<>();
         //pass in the value that speechList has
 
-        String p1 = "http://192.168.1.32/SetDyNet.cgi?a=";
-        String tempMessage = null;
+        String LOCAL_DOMAIN = "http://192.168.1.32/SetDyNet.cgi?a=";
 //
 //            for(Speech w: speechList) {
 //                if (words.contains("hello") && words.contains("hello")) {
@@ -185,57 +186,53 @@ public class FitbitActivity extends AppCompatActivity {
 
         //test using p1
         if (words.contains("dim")) {
-            handler.execute(p1 + "2&l=50&f=1");
+            handler.execute(LOCAL_DOMAIN + "2&l=50&f=1");
             mTextMessage.setText("dim detected");
         } else if (words.contains("white")) {
-            handler.execute(p1 + "2&p=1");
+            handler.execute(LOCAL_DOMAIN + "2&p=1");
             mTextMessage.setText("white detected");
         } else if (words.contains("blue") || words.contains("beach")) {
-            handler.execute(p1 + "2&p=5");
+            handler.execute(LOCAL_DOMAIN + "2&p=5");
             mTextMessage.setText("blue detected");
 
             //leave for test p1 work or not
         } else if (words.contains("red") || words.contains("angry")) {
-            handler.execute(p1+"2&p=3");
+            handler.execute(LOCAL_DOMAIN + "2&p=3");
             mTextMessage.setText("red detected");
         } else if (words.contains("green") || words.contains("park")) {
-            handler.execute(p1+"2&p=2");
+            handler.execute(LOCAL_DOMAIN + "2&p=2");
             mTextMessage.setText("green detected");
         } else if (words.contains("applause")) {
-            handler.execute(p1+"10&p=3");
+            handler.execute(LOCAL_DOMAIN + "10&p=3");
             mTextMessage.setText("applause detected");
         } else if (words.contains("party")) {
-            handler.execute(p1+"10&p=4");
+            handler.execute(LOCAL_DOMAIN + "10&p=4");
             mTextMessage.setText("party detected");
         } else if (words.contains("relax")) {
-            handler.execute(p1+"10&p=5");
+            handler.execute(LOCAL_DOMAIN + "10&p=5");
             mTextMessage.setText("relax detected");
         } else {
-            Speech temp=null;
-            int flag = 0;
-            Iterator<Speech> itr = speechList.iterator();
-            while (itr.hasNext()) {
-                Speech element = itr.next();
-                String w = element.getWord();
-                if (words.contains(w)) {
-                    flag = 1;
-                    temp = element;
+            Speech temp = null;
+            for (Speech e: speechList) {
+                if (word.contains(e.getWord())) {
+                    temp = e;
                     break;
                 }
             }
-            if (flag == 1) {
-                String a = temp.getArea();
-                String d = temp.getDomain();
-                String p = temp.getPreset();
-                if(d==null){
-                    tempMessage = p1+a+"&p="+p;
-                }else{
-                    String ht = "http://";
-                    String dy = "/SetDyNet.cgi?a=";
-                    tempMessage = ht+d+dy+a+"&p="+p;
-                    Log.e("debug",tempMessage);
+            if (temp) {
+                String area = temp.getArea();
+                String domain = temp.getDomain();
+                String preset = temp.getPreset();
+                String fullUrl = null;
+                if (domain == null) {
+                    fullUrl = LOCAL_DOMAIN + area + "&p=" + preset;
+                } else {
+                    String protocol = "http://";
+                    String endpoint = "/SetDyNet.cgi?a=";
+                    fullUrl = protocol + domain + endpoint + area + "&p=" + preset;
+                    Log.e("debug", fullUrl);
                 }
-                handler.execute(tempMessage);
+                handler.execute(fullUrl);
                 mTextMessage.setText("string from speechList detected");
             } else if (words.contains("on")) {
                 handler.execute("http://192.168.1.32/SetDyNet.cgi?a=2&p=1");
