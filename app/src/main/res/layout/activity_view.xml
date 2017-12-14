@@ -16,18 +16,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:padding="5dp"
-            android:text="@string/word"
-            android:textColor="#ffffff" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/domain"
-            android:textColor="#ffffff" />
-
+            android:text="@string/word" />
 
         <TextView
             android:layout_width="0dp"
@@ -35,8 +24,8 @@
             android:layout_weight="1.5"
             android:gravity="center"
             android:padding="5dp"
-            android:text="@string/area_number"
-            android:textColor="#ffffff" />
+            android:text="@string/domain" />
+
 
         <TextView
             android:layout_width="0dp"
@@ -44,8 +33,25 @@
             android:layout_weight="1"
             android:gravity="center"
             android:padding="5dp"
-            android:text="@string/preset_number"
-            android:textColor="#ffffff" />
+            android:text="@string/area_number" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/preset_number" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/control" />
+
+
 
     </LinearLayout>
 

@@ -18,12 +18,12 @@ import java.util.ArrayList;
 import applications.brightmood.R;
 
 
-public class FourColumn_ListAdapter extends BaseAdapter {
+public class FiveColumn_ListAdapter extends BaseAdapter {
 
     public ArrayList<Speech> speeches;
     Activity activity;
 
-    FourColumn_ListAdapter(Activity activity, ArrayList<Speech> speeches) {
+    FiveColumn_ListAdapter(Activity activity, ArrayList<Speech> speeches) {
         super();
         this.speeches = speeches;
         this.activity = activity;
@@ -48,6 +48,7 @@ public class FourColumn_ListAdapter extends BaseAdapter {
         TextView mDomain;
         TextView mArea;
         TextView mPreset;
+        TextView mCtrl;
     }
 
     @Override
@@ -61,9 +62,11 @@ public class FourColumn_ListAdapter extends BaseAdapter {
             holder = new ViewHolder();
             holder.mWord = (TextView) convertView.findViewById(R.id.textWord);
             holder.mDomain = (TextView) convertView.findViewById(R.id.textDomain);
-            holder.mArea = (TextView) convertView
-                    .findViewById(R.id.textArea);
+
+            holder.mArea = (TextView) convertView.findViewById(R.id.textArea);
             holder.mPreset = (TextView) convertView.findViewById(R.id.textPreset);
+
+            holder.mCtrl = (TextView) convertView.findViewById(R.id.textControl);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -74,6 +77,7 @@ public class FourColumn_ListAdapter extends BaseAdapter {
         holder.mDomain.setText(item.getDomain());
         holder.mArea.setText(item.getArea());
         holder.mPreset.setText(item.getPreset());
+        holder.mCtrl.setText(item.getCtrl());
 
         return convertView;
     }

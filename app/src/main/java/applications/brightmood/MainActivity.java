@@ -17,7 +17,7 @@ import applications.brightmood.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText etPreset, etWord, etArea, etDomain;
+    EditText etPreset, etWord, etArea, etDomain,etCtrl;
     Button btnAdd,btnView,btnGo;
     DatabaseHelper myDB;
     ArrayList<Speech> speechList;
@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         etWord = (EditText) findViewById(R.id.etWord);
         etDomain = (EditText) findViewById(R.id.etDomain);
         etArea = (EditText) findViewById(R.id.etArea);
+        etCtrl = (EditText) findViewById(R.id.etCtrl);
+
         btnAdd = (Button) findViewById(R.id.btnAdd);
         btnView = (Button) findViewById(R.id.btnView);
         btnGo = (Button) findViewById(R.id.btnGo);
@@ -61,13 +63,15 @@ public class MainActivity extends AppCompatActivity {
                 String domain = etDomain.getText().toString();
                 String area = etArea.getText().toString();
                 String preset = etPreset.getText().toString();
+                String control = etCtrl.getText().toString();
 
                 if(word.length() != 0 && area.length() != 0){// && preset.length() != 0){
-                    AddData(word,domain, area, preset);
+                    AddData(word, domain, area, preset, control);
                     etWord.setText("");
                     etDomain.setText("");
                     etArea.setText("");
                     etPreset.setText("");
+                    etCtrl.setText("");
                 }else{
                     Toast.makeText(MainActivity.this,"You must put something in the text field!",Toast.LENGTH_LONG).show();
                 }
@@ -76,8 +80,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void AddData(String word,String domain, String area, String preset ){
-        boolean insertData = myDB.addData(word,domain, area,preset);
+    public void AddData(String word, String domain, String area, String preset, String control){
+        boolean insertData = myDB.addData(word, domain, area, preset, control);
 
         if(insertData){
             Toast.makeText(MainActivity.this,"Successfully Entered Data!",Toast.LENGTH_LONG).show();

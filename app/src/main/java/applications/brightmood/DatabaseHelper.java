@@ -18,6 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL3 = "AREA";
     public static final String DOM = "DOMAIN";
     public static final String COL4 = "PRESET";
+    public static final String CTRL = "CONTROL";
 
 
     public DatabaseHelper(Context context) {
@@ -27,7 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTable = "CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                " WORD TEXT, DOMAIN TEXT, AREA TEXT, PRESET TEXT)";
+                " WORD TEXT, DOMAIN TEXT, AREA TEXT, PRESET TEXT,CONTROL TEXT)";
         db.execSQL(createTable);
     }
 
@@ -43,13 +44,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //        onCreate(db);
 //    }
 
-    public boolean addData(String word,String domain, String area, String preset) {
+    public boolean addData(String word,String control, String domain, String area, String preset) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL2, word);
         contentValues.put(DOM, domain);
         contentValues.put(COL3, area);
         contentValues.put(COL4, preset);
+        contentValues.put(CTRL, control);
 
 
         long result = db.insert(TABLE_NAME, null, contentValues);

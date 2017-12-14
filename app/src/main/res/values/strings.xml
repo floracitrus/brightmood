@@ -13,4 +13,6 @@
     <string name="preset_number">preset_number</string>
     <string name="domain_name">domain name</string>
     <string name="go">go</string>
+    <string name="Control">Control</string>
+    <string name="control">control</string>
 </resources>

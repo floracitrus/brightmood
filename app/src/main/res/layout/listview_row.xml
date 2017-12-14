@@ -21,7 +21,7 @@
         android:id = "@+id/textDomain"
         android:layout_width = "0dp"
         android:layout_height = "match_parent"
-        android:layout_weight = "2"
+        android:layout_weight = "1.5"
         android:background = "@drawable/cell_shape"
         android:ellipsize = "end"
         android:padding = "5dp"
@@ -32,7 +32,7 @@
         android:id = "@+id/textArea"
         android:layout_width = "0dp"
         android:layout_height = "match_parent"
-        android:layout_weight = "1.5"
+        android:layout_weight = "1"
         android:background = "@drawable/cell_shape"
         android:ellipsize = "end"
         android:padding = "5dp"
@@ -49,4 +49,17 @@
         android:padding = "5dp"
         android:text = "@string/preset_number"
         android:singleLine = "true" />
+
+    <TextView
+        android:id = "@+id/textControl"
+        android:layout_width = "0dp"
+        android:layout_height = "match_parent"
+        android:layout_weight = "1"
+        android:background = "@drawable/cell_shape"
+        android:ellipsize = "end"
+        android:padding = "5dp"
+        android:text = "@string/control"
+        android:singleLine = "true" />
+
+
 </LinearLayout>

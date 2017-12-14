@@ -1,7 +1,5 @@
 package applications.brightmood;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,8 +10,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-
-import applications.brightmood.R;
 
 
 /**
@@ -46,14 +42,14 @@ public class ViewListContents extends AppCompatActivity {
         } else {
             int i = 0;
             while (data.moveToNext()) {
-                speech = new Speech(data.getString(1), data.getString(2), data.getString(3), data.getString(4));
+                speech = new Speech(data.getString(1), data.getString(2), data.getString(3), data.getString(4), data.getString(5));
                 speechList.add(i, speech);
-                System.out.println(data.getString(1) + " " + data.getString(2) + " " + data.getString(3)+" "+data.getString(4));
+                System.out.println(data.getString(1) + " " + data.getString(2) + " " + data.getString(3)+" "+data.getString(4)+" "+data.getString(5));
                 System.out.println(speechList.get(i).getWord());
                 i++;
             }
             ListView listView = (ListView) findViewById(R.id.listview);
-            FourColumn_ListAdapter adapter = new FourColumn_ListAdapter(this, speechList);
+            FiveColumn_ListAdapter adapter = new FiveColumn_ListAdapter(this, speechList);
             listView.setAdapter(adapter);
 
         }

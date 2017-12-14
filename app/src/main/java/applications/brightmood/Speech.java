@@ -9,13 +9,14 @@ public class Speech implements Serializable{
     private String domain;
     private String area;
     private String preset;
+    private String ctrl;
 
-
-    public Speech(String word, String domain, String area, String preset) {
+    public Speech(String word, String domain, String area, String preset, String ctrl) {
         this.word = word;
         this.domain = domain;
         this.area = area;
         this.preset = preset;
+        this.ctrl = ctrl;
     }
     public String getWord(){
         return word;
@@ -44,4 +45,7 @@ public class Speech implements Serializable{
         this.preset = pre;
     }
 
+    public String getCtrl() {
+        return ctrl;
+    }
 }
