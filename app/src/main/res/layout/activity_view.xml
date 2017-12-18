@@ -16,7 +16,17 @@
             android:layout_weight="1"
             android:gravity="center"
             android:padding="5dp"
-            android:text="@string/word" />
+            android:text="Word" />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/Control" />
+
 
         <TextView
             android:layout_width="0dp"
@@ -24,7 +34,7 @@
             android:layout_weight="1.5"
             android:gravity="center"
             android:padding="5dp"
-            android:text="@string/domain" />
+            android:text="IP address" />
 
 
         <TextView
@@ -33,7 +43,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:padding="5dp"
-            android:text="@string/area_number" />
+            android:text="@string/A" />
 
         <TextView
             android:layout_width="0dp"
@@ -41,15 +51,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:padding="5dp"
-            android:text="@string/preset_number" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/control" />
+            android:text="@string/preset" />
 
 
 

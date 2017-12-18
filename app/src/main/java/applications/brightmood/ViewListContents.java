@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -44,8 +45,8 @@ public class ViewListContents extends AppCompatActivity {
             while (data.moveToNext()) {
                 speech = new Speech(data.getString(1), data.getString(2), data.getString(3), data.getString(4), data.getString(5));
                 speechList.add(i, speech);
-                System.out.println(data.getString(1) + " " + data.getString(2) + " " + data.getString(3)+" "+data.getString(4)+" "+data.getString(5));
-                System.out.println(speechList.get(i).getWord());
+               Log.e("debug",data.getString(1) + " " + data.getString(2) + " " + data.getString(3)+" "+data.getString(4)+" "+data.getString(5));
+                Log.e("debug",speechList.get(i).getWord());
                 i++;
             }
             ListView listView = (ListView) findViewById(R.id.listview);

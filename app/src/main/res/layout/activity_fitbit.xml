@@ -30,8 +30,13 @@
     <Button
         android:id="@+id/speechBtn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Speech" />
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/sppech_btn_test"
+        android:drawableTop="@drawable/silver_micro_icon"
+        android:text="@string/WhatToDo"
+        android:visibility="visible" />
 
 
 </LinearLayout>

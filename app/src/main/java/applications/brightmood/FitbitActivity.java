@@ -229,17 +229,26 @@ public class FitbitActivity extends AppCompatActivity {
                 String a = temp.getArea();
                 String d = temp.getDomain();
                 String p = temp.getPreset();
+                Log.e("debug", "domain name is"+d+d.length());
                 if(d==null){
+                    p1 = "http://192.168.1.32/SetDyNet.cgi?a=";
                     tempMessage = p1+a+"&p="+p;
-                }else{
+                    handler.execute(tempMessage);
+                    Log.e("debug",tempMessage);
+                    mTextMessage.setText("string from domain null detected");
+                }else if(d!=null){
                     String ht = "http://";
                     String dy = "/SetDyNet.cgi?a=";
                     tempMessage = ht+d+dy+a+"&p="+p;
-
-                    Log.e("debug",tempMessage);
+                    handler.execute(tempMessage);
+                    Log.e("debug",d+tempMessage);
+                    mTextMessage.setText("string from domain notnull detected");
                 }
-                handler.execute(tempMessage);
-                mTextMessage.setText("string from speechList detected");
+                else {
+                    handler.execute(tempMessage);
+                }
+                Log.e("debug",tempMessage);
+                //mTextMessage.setText("string from speechList detected");
             }
             else {
                 mTextMessage.setText(text);

@@ -15,4 +15,13 @@
     <string name="go">go</string>
     <string name="Control">Control</string>
     <string name="control">control</string>
+    <string name="Preset">Preset number</string>
+    <string name="KeyWord">Voice keyword</string>
+    <string name="gatewayIP">Gateway IP address</string>
+    <string name="area">Area</string>
+    <string name="preset">Preset</string>
+    <string name="Domain">Domain</string>
+    <string name="A">Area</string>
+    <string name="Word">Word</string>
+    <string name="WhatToDo">What would you like me to do?</string>
 </resources>

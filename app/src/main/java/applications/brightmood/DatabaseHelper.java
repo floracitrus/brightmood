@@ -44,7 +44,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //        onCreate(db);
 //    }
 
-    public boolean addData(String word,String control, String domain, String area, String preset) {
+    public boolean addData(String word, String domain, String area, String preset, String control) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL2, word);
